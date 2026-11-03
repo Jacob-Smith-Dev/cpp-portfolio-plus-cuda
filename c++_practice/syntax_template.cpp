@@ -1,6 +1,7 @@
 /*
-This is the ultimate master template for C++ mastery. It covers standard data structures, 
-algorithms, modern C++17/20 features, concurrency, advanced graph representations, and file I/O.
+This is the complete master template for C++ mastery. It integrates standard data structures, 
+algorithms, modern C++17/20 features, concurrency, advanced graph representations, file I/O, 
+time/randomization, and an exhaustive deep-dive into raw pointers and memory management.
 
 Attempt to perform the following tasks completely from memory. If you get a compilation error, 
 delete the file and start over. 
@@ -43,7 +44,9 @@ using namespace std;
 
 // Task C - Write a TrieNode struct containing a bool 'isWord' and an array/map of children pointers
 
-// Task D - Write a Graph Node struct for an adjacency list or just define the type alias (e.g., using Graph = vector<vector<int>>;)
+// Task D - Write a Graph Node struct for an adjacency list (or define the type alias using Graph = vector<vector<int>>;)
+
+// Task E - Write a void function 'printNumber(int x)' to be used later for function pointer practice
 
 
 int main() {
@@ -186,101 +189,155 @@ int main() {
 
   //Task 9.2 - Write a standard topological sort setup: initialize an in-degree array and push nodes with 0 in-degree to a queue.
 
-  //Task 9.3 - Create a dummy node on the Stack (ListNode dummy(0);) and a pointer traversing it for Linked List manipulation.
+  //Task 9.3 - Write a TreeNode struct containing an int val, TreeNode* left, and TreeNode* right.
+
+  //Task 9.4 - Write a safe boundary check if (!root) to handle null pointers in tree traversals.
+
+  //Task 9.5 - Create a dummy node on the Stack (ListNode dummy(0);) and a pointer traversing it for Linked List manipulation.
 
 
   //===========================================================================================================================
   //
-  //  10. BIT MANIPULATION & MATH
+  //  10. EXHAUSTIVE RAW POINTERS & MEMORY MANAGEMENT
   //
   //===========================================================================================================================
-  //Task 10.1 - Check if a number is even or odd using the bitwise AND operator (num & 1).
-
-  //Task 10.2 - Shift an integer left by 1 bit (equivalent to multiplying by 2) using <<.
-
-  //Task 10.3 - Count the number of set bits (1s) in an integer using __builtin_popcount(num).
-
-  //Task 10.4 - Find the greatest common divisor of two numbers using std::gcd(a, b).
-
-  //Task 10.5 - Initialize a std::bitset<32> from an integer and print its binary representation.
-
-  //Task 10.6 - Use bitwise XOR (^) to find the single non-repeating number in an array where every other number repeats twice.
-
-
-  //===========================================================================================================================
-  //
-  //  11. MODERN C++ (C++17/20 FEATURES)
-  //
-  //===========================================================================================================================
-  //Task 11.1 - Write a lambda function that returns std::optional<int> (return std::nullopt if a condition fails).
-
-  //Task 11.2 - Use std::variant<int, string> to hold either an integer or a string, and check the type using std::holds_alternative.
-
-  //Task 11.3 - (If compiler supports C++20) Use std::ranges::sort(vec) instead of std::sort(vec.begin(), vec.end()).
-
-
-  //===========================================================================================================================
-  //
-  //  12. FILE I/O
-  //
-  //===========================================================================================================================
-  //Task 12.1 - Open a file for writing using std::ofstream and output "Hello File" to it.
-
-  //Task 12.2 - Open a file for reading using std::ifstream, read it line-by-line using std::getline(), and print to console.
+  //Task 10.1 - RAW BASICS: Declare an int. Declare an int pointer and assign it the address of your int using &.
+  
+  //Task 10.2 - DEREFERENCING: Change the value of your int to 100 by dereferencing your pointer using *.
+  
+  //Task 10.3 - REFERENCES VS POINTERS: Declare an int reference (&) that aliases your int. Change the value to 200 using the reference.
+  
+  //Task 10.4 - CONST POINTERS: Declare a `const int*` (pointer to a constant integer). Attempt to modify the value (it should error in your head).
+  
+  //Task 10.5 - POINTER CONSTNESS: Declare an `int* const` (constant pointer to an integer). Attempt to point it at a new variable (should error).
+  
+  //Task 10.6 - POINTER ARITHMETIC: Create a raw array `int arr[5] = {10, 20, 30, 40, 50};`. Assign a pointer to the start of the array.
+  
+  //Task 10.7 - ARITHMETIC ACCESS: Access the 3rd element (30) using pointer addition and dereferencing: `*(ptr + 2)`.
+  
+  //Task 10.8 - NULL POINTERS: Declare a pointer and safely initialize it to `nullptr`. Write a safe `if (ptr)` boundary check.
+  
+  //Task 10.9 - DOUBLE POINTERS (Pointers to Pointers): Declare an `int**`. Assign it the address of your first integer pointer.
+  
+  //Task 10.10 - HEAP ALLOCATION (Single): Allocate a single integer on the Heap using `new`. Assign it the value 42.
+  
+  //Task 10.11 - HEAP CLEANUP (Single): Safely release the memory using `delete`. Set the pointer to `nullptr` immediately after.
+  
+  //Task 10.12 - HEAP ALLOCATION (Array): Allocate a dynamic array of 10 integers on the Heap using `new[]`.
+  
+  //Task 10.13 - HEAP CLEANUP (Array): Safely release the array memory using `delete[]`.
+  
+  //Task 10.14 - VOID POINTERS: Declare a `void*` and point it to an int. Safely cast it back to an `int*` using `static_cast<int*>()`.
+  
+  //Task 10.15 - FUNCTION POINTERS: Declare a function pointer `void (*funcPtr)(int);`. Assign it to your `printNumber` helper function, and call it.
 
 
   //===========================================================================================================================
   //
-  //  13. CONCURRENCY & THREADING (Basics)
+  //  11. SMART POINTERS & MODERN C++ MEMORY (C++11/14+)
   //
   //===========================================================================================================================
-  //Task 13.1 - Initialize a std::mutex.
+  //Task 11.1 - UNIQUE POINTERS: Create a std::unique_ptr<int> using std::make_unique<int>(5).
 
-  //Task 13.2 - Launch a std::thread that executes a lambda function.
+  //Task 11.2 - OWNERSHIP TRANSFER: Transfer ownership of that unique_ptr to a new unique_ptr using std::move().
 
-  //Task 13.3 - Inside the thread lambda, use std::lock_guard<std::mutex> to safely lock the mutex and print a message.
+  //Task 11.3 - SHARED POINTERS: Create a std::shared_ptr<int> using std::make_shared<int>(10).
 
-  //Task 13.4 - Join the thread to the main thread using .join().
+  //Task 11.4 - REFERENCE COUNTING: Copy the shared pointer into a second shared pointer. Check how many owners exist using `.use_count()`.
 
+  //Task 11.5 - WEAK POINTERS: Create a std::weak_ptr<int> pointing to your shared pointer to observe it without increasing the reference count.
 
-  //===========================================================================================================================
-  //
-  //  14. TIME & RANDOMIZATION
-  //
-  //===========================================================================================================================
-  //Task 14.1 - Record a start time using auto start = std::chrono::high_resolution_clock::now().
-
-  //Task 14.2 - Initialize a Mersenne Twister RNG: std::mt19937 gen(std::random_device{}()).
-
-  //Task 14.3 - Create a std::uniform_int_distribution<int> dist(1, 100) and generate a random number.
-
-  //Task 14.4 - Record an end time, calculate the duration in milliseconds, and print it.
+  //Task 11.6 - LOCKING WEAK POINTERS: Check if the weak_ptr is valid using `.expired()`. If not, access the data by upgrading it to a shared_ptr using `.lock()`.
 
 
   //===========================================================================================================================
   //
-  //  15. EXCEPTION HANDLING
+  //  12. BIT MANIPULATION & MATH
   //
   //===========================================================================================================================
-  //Task 15.1 - Set up a try-catch block. 
+  //Task 12.1 - Check if a number is even or odd using the bitwise AND operator (num & 1).
 
-  //Task 15.2 - Inside the 'try', throw a std::runtime_error("Custom error message").
+  //Task 12.2 - Shift an integer left by 1 bit (equivalent to multiplying by 2) using <<.
 
-  //Task 15.3 - Catch the exception as const std::exception& e and print e.what().
+  //Task 12.3 - Count the number of set bits (1s) in an integer using __builtin_popcount(num).
+
+  //Task 12.4 - Find the greatest common divisor of two numbers using std::gcd(a, b).
+
+  //Task 12.5 - Initialize a std::bitset<32> from an integer and print its binary representation.
+
+  //Task 12.6 - Use bitwise XOR (^) to find the single non-repeating number in an array where every other number repeats twice.
 
 
   //===========================================================================================================================
   //
-  //  16. OOP, SMART POINTERS, & CONSTEXPR
+  //  13. MODERN C++ (C++17/20 FEATURES)
   //
   //===========================================================================================================================
-  //Task 16.1 - Create a std::unique_ptr<int> using std::make_unique<int>(5).
+  //Task 13.1 - Write a lambda function that returns std::optional<int> (return std::nullopt if a condition fails).
 
-  //Task 16.2 - Transfer ownership of that unique_ptr to another unique_ptr using std::move().
+  //Task 13.2 - Use std::variant<int, string> to hold either an integer or a string, and check the type using std::holds_alternative.
 
-  //Task 16.3 - Declare a 'constexpr int factorial(int n)' function above main and calculate factorial(5) at compile time.
+  //Task 13.3 - (If compiler supports C++20) Use std::ranges::sort(vec) instead of std::sort(vec.begin(), vec.end()).
 
-  //Task 16.4 - Create a std::shared_ptr<int> and copy it to another shared_ptr to increment the reference count.
+
+  //===========================================================================================================================
+  //
+  //  14. FILE I/O
+  //
+  //===========================================================================================================================
+  //Task 14.1 - Open a file for writing using std::ofstream and output "Hello File" to it.
+
+  //Task 14.2 - Open a file for reading using std::ifstream, read it line-by-line using std::getline(), and print to console.
+
+
+  //===========================================================================================================================
+  //
+  //  15. CONCURRENCY & THREADING (Basics)
+  //
+  //===========================================================================================================================
+  //Task 15.1 - Initialize a std::mutex.
+
+  //Task 15.2 - Launch a std::thread that executes a lambda function.
+
+  //Task 15.3 - Inside the thread lambda, use std::lock_guard<std::mutex> to safely lock the mutex and print a message.
+
+  //Task 15.4 - Join the thread to the main thread using .join().
+
+
+  //===========================================================================================================================
+  //
+  //  16. TIME & RANDOMIZATION
+  //
+  //===========================================================================================================================
+  //Task 16.1 - Record a start time using auto start = std::chrono::high_resolution_clock::now().
+
+  //Task 16.2 - Initialize a Mersenne Twister RNG: std::mt19937 gen(std::random_device{}()).
+
+  //Task 16.3 - Create a std::uniform_int_distribution<int> dist(1, 100) and generate a random number.
+
+  //Task 16.4 - Record an end time, calculate the duration in milliseconds, and print it.
+
+
+  //===========================================================================================================================
+  //
+  //  17. EXCEPTION HANDLING
+  //
+  //===========================================================================================================================
+  //Task 17.1 - Set up a try-catch block. 
+
+  //Task 17.2 - Inside the 'try', throw a std::runtime_error("Custom error message").
+
+  //Task 17.3 - Catch the exception as const std::exception& e and print e.what().
+
+
+  //===========================================================================================================================
+  //
+  //  18. OOP & CONSTEXPR
+  //
+  //===========================================================================================================================
+  //Task 18.1 - Declare a 'constexpr int factorial(int n)' function above main and calculate factorial(5) at compile time.
+
+  //Task 18.2 - Create a simple Class with a private integer, a public constructor with an initializer list, and a public getter method.
 
   return 0;
 }
